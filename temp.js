@@ -48,3 +48,17 @@ this.moveDown = function () {
     ctx.clearRect(0,0,canvas.width,canvas.height);
     tank.drawTank(tank.getX(),tank.getY());
 }
+
+let b = "<img id=\"linh1\" src=\"img/luffy.jpg\" alt=\"luffy\">"
+//let a = document.getElementById("linh1");
+let ctx = document.getElementById("linh").getContext("2d");
+ctx.drawImage(b,100,100);
+
+let show_tank = '<img id="showtank" ' +
+    'src="' + img + '"' +
+    'height="20px"' +
+    'width="20px"' +
+    'style="left: ' + this.getX() + 'px; top: ' + this.getY() + 'px; position: absolute;" />';
+let ctx = document.getElementById("gameboard").getContext("2d");
+ctx.drawImage(ctx,10,10);
+//return show_tank;
