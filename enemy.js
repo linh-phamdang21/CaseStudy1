@@ -1,5 +1,3 @@
-let canvas = document.getElementById("gameboard");
-let ctx = canvas.getContext("2d");
 let Enemy = function (xPos,yPos) {
     this.xPos = xPos;
     this.yPos = yPos;
@@ -9,11 +7,6 @@ let Enemy = function (xPos,yPos) {
     this.enemyCurrentDirection = 0;
     this.ballArray = [];
     this.shootStatus = false;
-    this.enemyImgUp = document.getElementById("enemy_up");
-    this.enemyImgRight = document.getElementById("enemy_right");
-    this.enemyImgDown = document.getElementById("enemy_down");
-    this.enemyImgLeft = document.getElementById("enemy_left");
-
     this.getX = function () {
         return this.xPos;
     }
@@ -31,7 +24,7 @@ let Enemy = function (xPos,yPos) {
     }
     this.drawEnemy = function () {
         ctx.beginPath();
-        ctx.drawImage(this.enemyImgRight,this.xPos,this.yPos,this.width,this.height);
+        ctx.drawImage(ENEMY_IMG_RIGHT,this.xPos,this.yPos,this.width,this.height);
         ctx.closePath();
     }
     this.reDraw = function (enemyImg) {
@@ -41,22 +34,22 @@ let Enemy = function (xPos,yPos) {
         ctx.closePath();
     }
     this.moveLeft = function () {
-        let enemyImg = this.enemyImgLeft;
+        let enemyImg = ENEMY_IMG_LEFT;
         this.xPos -= this.speed;
         this.reDraw(enemyImg);
     }
     this.moveRight = function () {
-        let enemyImg = this.enemyImgRight;
+        let enemyImg = ENEMY_IMG_RIGHT;
         this.xPos += this.speed;
         this.reDraw(enemyImg);
     }
     this.moveUp = function () {
-        let enemyImg = this.enemyImgUp;
+        let enemyImg = ENEMY_IMG_UP;
         this.yPos -= this.speed;
         this.reDraw(enemyImg);
     }
     this.moveDown = function () {
-        let enemyImg = this.enemyImgDown;
+        let enemyImg = ENEMY_IMG_DOWN;
         this.yPos += this.speed;
         this.reDraw(enemyImg);
     }

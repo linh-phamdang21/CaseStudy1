@@ -1,5 +1,3 @@
-let canvas = document.getElementById("gameboard");
-let ctx = canvas.getContext("2d");
 let Tank = function (xPos,yPos,position) {
     this.xPos = xPos;
     this.yPos = yPos;
@@ -10,11 +8,6 @@ let Tank = function (xPos,yPos,position) {
     this.tankCurrentDirection = 0;
     this.ballArray = [];
     this.shootStatus = false;
-    this.tankImgUp = document.getElementById("player_up");
-    this.tankImgRight = document.getElementById("player_right");
-    this.tankImgDown = document.getElementById("player_down");
-    this.tankImgLeft = document.getElementById("player_left");
-
     this.getX = function () {
         return this.xPos;
     }
@@ -32,7 +25,7 @@ let Tank = function (xPos,yPos,position) {
     }
     this.drawTank = function () {
         ctx.beginPath();
-        ctx.drawImage(this.tankImgRight, this.xPos, this.yPos, this.width, this.height);
+        ctx.drawImage(TANK_IMG_RIGHT, this.xPos, this.yPos, this.width, this.height);
         ctx.closePath();
     }
     this.reDraw = function (tankImg) {
@@ -42,30 +35,30 @@ let Tank = function (xPos,yPos,position) {
         ctx.closePath();
     }
     this.moveLeft = function () {
-        let tankImg = this.tankImgLeft;
+        let tankImg = TANK_IMG_LEFT;
         this.xPos -= this.speed;
         this.reDraw(tankImg);
     }
     this.moveRight = function () {
-        let tankImg = this.tankImgRight;
+        let tankImg = TANK_IMG_RIGHT;
         this.xPos += this.speed;
         this.reDraw(tankImg);
     }
     this.moveUp = function () {
-        let tankImg = this.tankImgUp;
+        let tankImg = TANK_IMG_UP;
         this.yPos -= this.speed;
         this.reDraw(tankImg);
     }
     this.moveDown = function () {
-        let tankImg = this.tankImgDown;
+        let tankImg = TANK_IMG_DOWN;
         this.yPos += this.speed;
         this.reDraw(tankImg);
     }
     this.fire = function () {
         if (this.isShoot) {
-            let ball = new Ball(this.xPos + mainTank.width/2,this.yPos+mainTank.height/2, this.direction);
-            this.ballArray.push(ball);
+            let ball = new Ball(this.xPos + this.width/2,this.yPos+ this.height/2, this.position);
             this.shootStatus = false;
+            this.ballArray.push(ball);
         }
         this.ballMove(this.ballArray);
     };
