@@ -61,7 +61,7 @@ let Tank = function (xPos,yPos,position) {
             this.ballArray.push(ball);
         }
         this.ballMove(this.ballArray);
-    };
+    }
     this.ballMove = function (array) {
         for (let i = 0; i < array.length; i++) {
             if (array[i].top < 0) {
@@ -72,12 +72,12 @@ let Tank = function (xPos,yPos,position) {
                 array[i].move();
             }
         }
-    };
+    }
 }
-let tank = new Tank(100,100,1);
-let boardGame = new Boardgame();
-boardGame();
-tank.drawTank();
+// let tank = new Tank(100,100,1);
+// let boardGame = new Boardgame();
+// boardGame();
+// tank.drawTank();
 
 
 
