@@ -12,6 +12,22 @@ let Ball = function (xPos, yPos,position) {
         ctx.fill();
         ctx.closePath();
     }
+    this.move = function () {
+        switch (this.direction) {
+            case 1 :
+                this.ballMoveUp();
+                break;
+            case 2 :
+                this.ballMoveRight();
+                break;
+            case 3 :
+                this.ballMoveDown();
+                break;
+            case 4 :
+                this.ballMoveLeft();
+                break;
+        }
+    }
     this.ballMoveUp = function () {
         this.yPos -= this.speed;
         this.drawBall();
@@ -29,47 +45,3 @@ let Ball = function (xPos, yPos,position) {
         this.drawBall();
     }
 }
-
-let Bullet = function (left, top, direction) {
-    this.left = left;
-    this.top = top;
-    this.direction = direction;
-    this.speed = BULLET_DEFAULT_SPEED;
-
-    this.drawBullet = function () {
-        ctx.beginPath();
-        ctx.fillStyle = "white";
-        ctx.rect(this.left, this.top, 15, 15);
-        ctx.fill();
-        ctx.closePath();
-    };
-    this.move = function () {
-        switch (this.direction) {
-            case 1 :
-                this.moveUp();
-                break;
-            case 2 :
-                this.moveDown();
-                break;
-            case 3 :
-                this.moveLeft();
-                break;
-            case 4 :
-                this.moveRight();
-                break;
-        }
-    };
-
-    this.moveUp = function () {
-        this.top -= this.speed;
-    };
-    this.moveDown = function () {
-        this.top +=this.speed;
-    };
-    this.moveLeft = function () {
-        this.left -= this.speed;
-    };
-    this.moveRight = function () {
-        this.left += this.speed;
-    };
-};

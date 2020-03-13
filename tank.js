@@ -81,10 +81,10 @@ let Tank = function (xPos,yPos,position) {
         }
     };
 }
-let tank = new Tank(100,100);
+let tank = new Tank(100,100,1);
 let boardGame = new Boardgame();
-tank.drawTank();
 boardGame();
+tank.drawTank();
 
 
 

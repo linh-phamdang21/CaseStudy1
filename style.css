@@ -4,3 +4,7 @@ canvas {
     height: 500px;
     border: orangered 5px solid;
 }
+
+#player_up, #player_right, #player_down, #player_left, #enemy_up, #enemy_right, #enemy_down, #enemy_left {
+    display: none;
+}
